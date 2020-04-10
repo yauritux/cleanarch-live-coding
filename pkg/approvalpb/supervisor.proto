@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package approval;
+option go_package = "approvalpb";
+
+message Supervisor {
+    string id = 1;
+    string name = 2;
+    string branch = 3;
+}
+
+message SupervisorRequest {
+    Supervisor supervisor = 1;
+}
+
+message SupervisorResponse {
+    repeated Supervisor result = 1;
+}
+
+service SupervisorService {
+    rpc GetSupervisors(SupervisorRequest) returns (SupervisorResponse) {};
+}
